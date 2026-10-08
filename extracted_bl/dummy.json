@@ -1,0 +1,28 @@
+{
+    "consignee": {
+        "split_extracted_bl": [
+            "ABC LTD.",
+            "BCD LTD.",
+            "CDE LTD."
+        ]
+    },
+    "consignee_details": {
+        "split_extracted_bl": [
+            "123, Seoul, S.Korea",
+            "456, Seoul, S.Korea"
+        ]
+    },
+    "notify_party": {
+        "split_extracted_bl": [
+            "ABC ENGINEERS",
+            "ABC CORPORATION",
+            "ABC CT"
+        ]
+    },
+    "notify_party_details": {
+        "split_extracted_bl": [
+            "123 VILLAGE COURT GARFIELD, WY 123456, UNITED STATES TEL:+(99)1234-5678 FAX:+(99)1234-5678",
+            "456 VILLAGE COURT GARFIELD, WY 456789, UNITED STATES TEL:+(99)2345-5678 FAX:+(99)2345-5678"
+        ]
+    }
+}

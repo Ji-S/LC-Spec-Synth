@@ -1,0 +1,120 @@
+{
+  "clause": "2/3 ORIGINAL CLEAN SHIPPED ON BOARD BILL OF LADING PLUS 5 NON-NEGOTIABLE COPIES ISSUED OR ENDORSED TO THE ORDER OF CDE LTD. NOTIFY ABC CORPORATION OR APPLICANT WITH FULL ADDRESS DISCHARGE PORT: OAKLAND, QUOTING CONTRACT NUMBER STATING H.S. CODE: NO.12378945 SHOWING FREIGHT PRE-PAID",
+  "gt_json": [
+    {
+      "combinator": "OR",
+      "conditions": [
+        {
+          "doc": "BL",
+          "key": "adverse_remarks",
+          "expected_value": null,
+          "operator": "NEGATION"
+        },
+        {
+          "doc": "BL",
+          "key": "clean_wording",
+          "expected_value": true,
+          "operator": "EXISTS"
+        }
+      ]
+    },
+    {
+      "combinator": "OR",
+      "conditions": [
+        {
+          "doc": "BL",
+          "key": "consignee",
+          "expected_value": "TO THE ORDER OF CDE LTD.",
+          "operator": "EQUALS"
+        },
+        {
+          "doc": "BL",
+          "key": "endorsement",
+          "expected_value": "TO THE ORDER OF CDE LTD.",
+          "operator": "EQUALS"
+        }
+      ]
+    },
+    {
+      "doc": "BL",
+      "key": "contract_number",
+      "expected_value": true,
+      "operator": "EXISTS"
+    },
+    {
+      "doc": "BL",
+      "key": "freight_terms",
+      "expected_value": "FREIGHT PRE-PAID",
+      "operator": "CONTAINS"
+    },
+    {
+      "doc": "BL",
+      "key": "hs_code",
+      "expected_value": "12378945",
+      "operator": "EQUALS"
+    },
+    {
+      "combinator": "OR",
+      "conditions": [
+        {
+          "doc": "BL",
+          "key": "notify_party",
+          "expected_value": "ABC CORPORATION",
+          "operator": "EQUALS"
+        },
+        {
+          "combinator": "AND",
+          "conditions": [
+            {
+              "doc": "BL",
+              "key": "notify_party",
+              "expected_value": "$LC_APPLICANT",
+              "operator": "EQUALS"
+            },
+            {
+              "doc": "BL",
+              "key": "notify_party_details",
+              "expected_value": "$LC_APPLICANT_DETAILS",
+              "operator": "CONTAINS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc": "BL",
+      "key": "number_of_copies",
+      "expected_value": 5,
+      "operator": "GTE"
+    },
+    {
+      "doc": "BL",
+      "key": "number_of_originals",
+      "expected_value": 2,
+      "operator": "GTE"
+    },
+    {
+      "combinator": "OR",
+      "conditions": [
+        {
+          "doc": "BL",
+          "key": "on_board_notation",
+          "expected_value": true,
+          "operator": "EXISTS"
+        },
+        {
+          "doc": "BL",
+          "key": "pre_printed_shipment_wording",
+          "expected_value": true,
+          "operator": "EXISTS"
+        }
+      ]
+    },
+    {
+      "doc": "BL",
+      "key": "port_of_discharge",
+      "expected_value": "OAKLAND",
+      "operator": "EQUALS"
+    }
+  ]
+}

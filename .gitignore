@@ -1,0 +1,7 @@
+# Generated samples
+generated_clause_bl/
+generated_consignee_endorsement_bl/
+
+# Python cache
+__pycache__/
+*.pyc
